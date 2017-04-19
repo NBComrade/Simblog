@@ -1,7 +1,7 @@
-Yii 2 Basic Project Template
+Yii 2 Simple blog
 ============================
 
-Yii 2 Basic Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
+Yii 2 Simple blog is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
 rapidly creating small projects.
 
 The template contains the basic features including user login/logout and a contact page.
