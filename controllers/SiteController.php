@@ -4,16 +4,14 @@ namespace app\controllers;
 
 use app\models\Article;
 use app\models\Category;
-use app\models\Comment;
-use app\models\CommentForm;
+use app\forms\CommentForm;
 use app\models\Testemonials;
 use Yii;
-use yii\data\Pagination;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use app\forms\LoginForm;
+use app\forms\ContactForm;
 
 class SiteController extends Controller
 {

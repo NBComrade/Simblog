@@ -1,12 +1,6 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Богдан
- * Date: 27.03.2017
- * Time: 12:14
- */
 
-namespace app\models;
+namespace app\forms;
 use yii\base\Model;
 
 class SingupForm extends Model

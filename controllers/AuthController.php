@@ -1,8 +1,8 @@
 <?php
 namespace app\controllers;
 
-use app\models\LoginForm;
-use app\models\SingupForm;
+use app\forms\LoginForm;
+use app\forms\SingupForm;
 use app\models\User;
 use Yii;
 use yii\web\Controller;
