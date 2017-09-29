@@ -1,5 +1,5 @@
 <?php
-namespace app\forms;
+namespace app\modules\blog\forms;
 use app\models\Comment;
 use yii\base\Model;
 

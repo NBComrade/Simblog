@@ -18,7 +18,7 @@
   "bugs": {
     "url": "https://github.com/NBComrade/Simblog/issues"
   },
-  "homepage": "https://github.com/NBComrade/Simblog#readme",
+  "homepage": "http://livecontent.hol.es/",
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",

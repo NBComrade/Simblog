@@ -21,7 +21,7 @@ $config = [
             'loginUrl' => ['auth/login']
         ],
         'errorHandler' => [
-            'errorAction' => 'site/error',
+            'errorAction' => 'blog/site/error',
         ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
