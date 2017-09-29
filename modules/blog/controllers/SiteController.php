@@ -1,6 +1,6 @@
 <?php
 
-namespace app\controllers;
+namespace app\modules\blog\controllers;
 
 use app\models\Article;
 use app\models\Category;

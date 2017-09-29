@@ -9,11 +9,7 @@ namespace app\assets;
 
 use yii\web\AssetBundle;
 
-/**
- * @author Qiang Xue <qiang.xue@gmail.com>
- * @since 2.0
- */
-class AppAsset extends AssetBundle
+class AdminAsset extends AssetBundle
 {
     public $basePath = '@webroot';
     public $baseUrl = '@web';
@@ -21,9 +17,12 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
+        '/ckeditor/ckeditor.js',
+        '/ckeditor/ckfinder.js',
+        'js/ckiniter.js'
     ];
     public $depends = [
         'yii\web\YiiAsset',
-        'yii\bootstrap\BootstrapAssetPlugin',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }

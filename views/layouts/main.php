@@ -4,9 +4,9 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use app\assets\PublicAsset;
+use app\assets\SimblogAsset;
 
-PublicAsset::register($this);
+SimblogAsset::register($this);
 $this->title = "Simblog";
 ?>
 <?php $this->beginPage() ?>

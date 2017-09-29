@@ -6,12 +6,12 @@ var gulp = require('gulp'),
     minify = require('gulp-clean-css');
 
 // Paths to resources
-    var JS_PATH = [
-                    'web/public/js/owl.carousel.min.js',
-                    'web/public/js/jquery.stickit.min.js',
-                    'web/public/js/menu.js',
-                    'web/public/js/scripts.js'
-                  ],
+var JS_PATH = [
+        'web/public/js/owl.carousel.min.js',
+        'web/public/js/jquery.stickit.min.js',
+        'web/public/js/menu.js',
+        'web/public/js/scripts.js'
+    ],
     CSS_PATH = 'web/public/css/*.css';
 
 //task compile js
