@@ -4,12 +4,10 @@
 /* @var $content string */
 
 use yii\helpers\Html;
-use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use app\assets\PublicAsset;
 
 PublicAsset::register($this);
+$this->title = "Simblog";
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

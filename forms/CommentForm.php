@@ -1,5 +1,6 @@
 <?php
 namespace app\forms;
+use app\models\Comment;
 use yii\base\Model;
 
 class CommentForm extends Model

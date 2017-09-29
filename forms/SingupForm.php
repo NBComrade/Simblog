@@ -1,6 +1,8 @@
 <?php
 
 namespace app\forms;
+
+use app\models\User;
 use yii\base\Model;
 
 class SingupForm extends Model

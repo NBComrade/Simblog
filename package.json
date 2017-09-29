@@ -1,0 +1,31 @@
+{
+  "name": "simblog",
+  "version": "1.0.0",
+  "description": "Simple blog build with Yii2",
+  "main": "index.php",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NBComrade/Simblog.git"
+  },
+  "author": "NBComrade",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NBComrade/Simblog/issues"
+  },
+  "homepage": "https://github.com/NBComrade/Simblog#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^4.0.0",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0",
+    "gulp-uglifycss": "^1.0.8"
+  }
+}
