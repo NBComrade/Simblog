@@ -56,6 +56,9 @@ $config = [
         'blog' => [
             'class' => 'app\modules\blog\Module',
         ],
+        'api' => [
+            'class' => 'app\modules\api\Module',
+        ]
     ],
     'params' => $params,
 ];

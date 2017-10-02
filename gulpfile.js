@@ -31,3 +31,11 @@ gulp.task('simblog:min:css', function () {
         .pipe(rename({dirname: 'css'}))
         .pipe(gulp.dest('web/'));
 });
+
+//watching changing css and js
+gulp.task('watch', ['simblog:min:css', 'simblog:min:js', function() {
+    gulp.watch('web/public/**/*.css', ['simblog:min:css']);
+    gulp.watch('web/public/**/*.js', ['simblog:min:js']);
+});
+
+gulp.task('default', ['watch']);
