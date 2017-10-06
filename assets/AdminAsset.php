@@ -14,15 +14,15 @@ class AdminAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl = '@web';
     public $css = [
-        'css/site.css',
+        'css/custom/site.css',
     ];
     public $js = [
-        '/ckeditor/ckeditor.js',
-        '/ckeditor/ckfinder.js',
-        'js/ckiniter.js'
+        'js/custom/ckiniter.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
+        'app\assets\CKEditorAsset',
+        'app\assets\CKFinderAss'
     ];
 }

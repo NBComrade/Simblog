@@ -10,9 +10,6 @@ var gulp = require('gulp'),
 var JS_PATH = [
         'vendor/bower/owl.carousel/dist/owl.carousel.min.js',
         'vendor/bower/jquery-stickit/build/jquery.stickit.min.js',
-        'vendor/bower/ckeditor/ckeditor.js',
-        'vendor/bower/ckfinder/ckfinder.js',
-        'web/js/custom/ckiniter.js',
         'web/js/custom/scripts.js',
         'web/js/custom/menu.js'
     ],
