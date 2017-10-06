@@ -3,16 +3,28 @@ var gulp = require('gulp'),
     rename = require("gulp-rename"),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
-    minify = require('gulp-clean-css');
+    minify = require('gulp-clean-css'),
+	watch = require('gulp-watch');
 
 // Paths to resources
 var JS_PATH = [
-        'web/public/js/owl.carousel.min.js',
-        'web/public/js/jquery.stickit.min.js',
-        'web/public/js/menu.js',
-        'web/public/js/scripts.js'
+        'vendor/bower/owl.carousel/dist/owl.carousel.min.js',
+        'vendor/bower/jquery-stickit/build/jquery.stickit.min.js',
+        'vendor/bower/ckeditor/ckeditor.js',
+        'vendor/bower/ckfinder/ckfinder.js',
+        'web/js/custom/ckiniter.js',
+        'web/js/custom/scripts.js',
+        'web/js/custom/menu.js'
     ],
-    CSS_PATH = 'web/public/css/*.css';
+    CSS_PATH = [
+        'vendor/bower/animate.css/animate.min.css',
+        'vendor/bower/font-awesome/css/font-awesome.min.css',
+        'vendor/bower/owl.carousel/dist/assets/owl.carousel.min.css',
+        'vendor/bower/owl.carousel/dist/assets/owl.carousel.theme.default.min.css',
+        'web/css/custom/*.css'
+    ];
+
+
 
 //task compile js
 gulp.task('simblog:min:js', function () {
@@ -33,7 +45,7 @@ gulp.task('simblog:min:css', function () {
 });
 
 //watching changing css and js
-gulp.task('watch', ['simblog:min:css', 'simblog:min:js', function() {
+gulp.task('watch', ['simblog:min:css', 'simblog:min:js'], function() {
     gulp.watch('web/public/**/*.css', ['simblog:min:css']);
     gulp.watch('web/public/**/*.js', ['simblog:min:js']);
 });

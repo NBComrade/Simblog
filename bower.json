@@ -1,0 +1,26 @@
+{
+  "name": "simblog",
+  "description": "Simple blog build with Yii2",
+  "main": "index.php",
+  "authors": [
+    "NBComrade"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/NBComrade/Simblog",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "owl.carousel": "^2.2.1",
+    "font-awesome": "^4.7.0",
+    "jquery-stickit": "^0.2.14",
+    "animate.css": "^3.5.2",
+    "ckfinder": "*",
+    "ckeditor": "^4.7.3"
+  }
+}

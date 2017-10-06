@@ -7,9 +7,9 @@ use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 use yii\widgets\Breadcrumbs;
-use app\assets\AdminAsset;
+use app\assets\SimblogAsset;
 
-AdminAsset::register($this);
+SimblogAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>
