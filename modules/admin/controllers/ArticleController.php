@@ -7,7 +7,7 @@ use app\models\Category;
 use app\models\Tag;
 use Yii;
 use app\models\Article;
-use app\models\search\ArticleSearch;
+use app\modules\admin\models\ArticleSearch;
 use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

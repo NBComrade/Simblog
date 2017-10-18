@@ -2,8 +2,7 @@
 
 namespace app\models;
 
-use Yii;
-
+use yii\db\ActiveRecord;
 /**
  * This is the model class for table "tag".
  *
@@ -12,7 +11,7 @@ use Yii;
  *
  * @property ArticleTag[] $articleTags
  */
-class Tag extends \yii\db\ActiveRecord
+class Tag extends ActiveRecord
 {
     /**
      * @inheritdoc
@@ -42,10 +41,4 @@ class Tag extends \yii\db\ActiveRecord
             'title' => 'Title',
         ];
     }
-    public function getArticles()
-    {
-        return $this->hasMany(Article::className(), ['id' => 'article_id'])
-            ->viaTable('article_tag', ['tag_id' => 'id']);
-    }
-
 }

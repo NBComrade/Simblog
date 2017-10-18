@@ -1,16 +1,16 @@
 <?php
 
-namespace app\models\search;
+namespace app\modules\admin\models;
 
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Category;
+use app\models\Tag;
 
 /**
- * CategorySearch represents the model behind the search form about `app\models\Category`.
+ * TagSearch represents the model behind the search form about `app\models\Tag`.
  */
-class CategorySearch extends Category
+class TagSearch extends Tag
 {
     /**
      * @inheritdoc
@@ -41,7 +41,7 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find();
+        $query = Tag::find();
 
         // add conditions that should always apply here
 

@@ -1,16 +1,15 @@
 <?php
 
-namespace app\models\search;
+namespace app\modules\admin\models;
 
-use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use app\models\Tag;
+use app\models\Article;
 
 /**
- * TagSearch represents the model behind the search form about `app\models\Tag`.
+ * ArticleSearch represents the model behind the search form about `app\models\Article`.
  */
-class TagSearch extends Tag
+class ArticleSearch extends Article
 {
     /**
      * @inheritdoc
@@ -18,8 +17,8 @@ class TagSearch extends Tag
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['title'], 'safe'],
+            [['id', 'viewed', 'user_id', 'status', 'category_id'], 'integer'],
+            [['title', 'description', 'content', 'date', 'image'], 'safe'],
         ];
     }
 
@@ -41,7 +40,7 @@ class TagSearch extends Tag
      */
     public function search($params)
     {
-        $query = Tag::find();
+        $query = Article::find();
 
         // add conditions that should always apply here
 
@@ -60,9 +59,17 @@ class TagSearch extends Tag
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'date' => $this->date,
+            'viewed' => $this->viewed,
+            'user_id' => $this->user_id,
+            'status' => $this->status,
+            'category_id' => $this->category_id,
         ]);
 
-        $query->andFilterWhere(['like', 'title', $this->title]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'content', $this->content])
+            ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
     }
