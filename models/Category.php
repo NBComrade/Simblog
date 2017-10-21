@@ -38,4 +38,13 @@ class Category extends \yii\db\ActiveRecord
             'title' => 'Title',
         ];
     }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticles()
+    {
+        return $this->hasMany(Article::className(), ['category_id'=> 'id']);
+    }
+
+
 }

@@ -1,3 +1,6 @@
+<?php
+use yii\helpers\Html;
+?>
 <footer class="footer-widget-section">
     <div class="container">
         <div class="row">
@@ -41,7 +44,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="/public/images/author.png" alt="">
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -60,8 +63,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="public/images/author.png" alt="">
-
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
                                         <div class="author-text">
                                             <h4>Sophia</h4>
 
@@ -79,8 +81,7 @@
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <img src="public/images/author.png" alt="">
-
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
                                         <div class="author-text">
                                             <h4>Sophia</h4>
 
@@ -102,7 +103,9 @@
 
                     <div class="custom-post">
                         <div>
-                            <a href="#"><img src="/public/images/footer-img.png" alt=""></a>
+                            <a href="#">
+                                <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/footer-img.png')) ?>
+                            </a>
                         </div>
                         <div>
                             <a href="#" class="text-uppercase">Home is peaceful Place</a>

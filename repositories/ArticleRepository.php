@@ -2,6 +2,7 @@
 
 namespace app\repositories;
 
+use app\behaviors\DateBehavior;
 use app\models\ArticleTag;
 use app\models\Category;
 use app\models\Comment;
@@ -17,6 +18,8 @@ class ArticleRepository extends Article
 {
     const POPULAR_COUNT = 3;
     const LAST_COUNT = 4;
+
+
 
     /**
      * @return bool
@@ -45,18 +48,6 @@ class ArticleRepository extends Article
         $imageModel = new ImageUpload();
         $imageModel->deleteCurrentImage($this->image);
 
-    }
-
-    /**
-     * @return string
-     */
-    public function getImage() : string
-    {
-        if ($this->image) {
-            return '/uploads/' . $this->image;
-        } else {
-            return '/no-image.jpg';
-        }
     }
 
     /**
@@ -135,20 +126,11 @@ class ArticleRepository extends Article
     }
 
     /**
-     * Get date of article update
-     * @return string
-     */
-    public function getDate() : string
-    {
-        return Yii::$app->formatter->asDate($this->date);
-    }
-
-    /**
      * Get all articles with pagination;
      * @param int $pageSize
      * @return array
      */
-    public static function getAll(int $pageSize = 5) : array
+    public static function getAll(int $pageSize = 5)
     {
         $query = Article::find();
 
@@ -165,17 +147,17 @@ class ArticleRepository extends Article
     }
 
     /**
-     * @return object
+     * @return array
      */
-    public static function getPopular() : object
+    public static function getPopular() : array
     {
         return self::find()->orderBy('viewed desc')->limit(self::POPULAR_COUNT)->all();
     }
 
     /**
-     * @return object
+     * @return array
      */
-    public static function getLast() : object
+    public static function getLast() : array
     {
         return self::find()->orderBy('date desc')->limit(self::LAST_COUNT)->all();
     }
@@ -189,30 +171,6 @@ class ArticleRepository extends Article
         return $this->save();
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getTags()
-    {
-        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
-            ->viaTable('article_tag', ['article_id' => 'id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getCategory()
-    {
-        return $this->hasOne(Category::className(), ['id' => 'category_id']);
-    }
-
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getComments()
-    {
-        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
-    }
 
     /**
      * @return array|\yii\db\ActiveRecord[]
@@ -222,18 +180,11 @@ class ArticleRepository extends Article
         return $this->getComments()->where(['status' => 1])->all();
     }
 
-    /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getUser()
-    {
-        return $this->hasOne(User::className(), ['id' => 'user_id']);
-    }
 
     /**
-     * @return object
+     * @return array
      */
-    public function getArticleAuthor() : object
+    public function getArticleAuthor()
     {
         return $this->getUser()->where(['id' => $this->user_id])->one();
     }
@@ -249,9 +200,9 @@ class ArticleRepository extends Article
     }
 
     /**
-     * @return object
+     * @return array
      */
-    public static function getRandomPost() : object
+    public static function getRandomPost() : array
     {
         return Article::find()->orderBy('RAND()')->limit(1)->all();
     }

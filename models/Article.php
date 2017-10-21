@@ -2,6 +2,9 @@
 
 namespace app\models;
 
+use app\behaviors\DateBehavior;
+use Yii;
+
 /**
  * This is the model class for table "article".
  *
@@ -61,6 +64,54 @@ class Article extends \yii\db\ActiveRecord
             'category_id' => 'Category ID',
         ];
     }
+    /**
+     * @return string
+     */
+    public function getImage() : string
+    {
+        if ($this->image) {
+            return 'web/uploads/' . $this->image;
+        } else {
+            return 'web/no-image.jpg';
+        }
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getTags()
+    {
+        return $this->hasMany(Tag::className(), ['id' => 'tag_id'])
+            ->viaTable('article_tag', ['article_id' => 'id']);
+    }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'category_id']);
+    }
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getComments()
+    {
+        return $this->hasMany(Comment::className(), ['article_id' => 'id']);
+    }
+    /**
+     * Get date of article update
+     * @return string
+     */
+    public function getDate() : string
+    {
+        return Yii::$app->formatter->asDate($this->date);
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
 }

@@ -2,6 +2,8 @@
 
 namespace app\models;
 
+use Yii;
+
 /**
  * This is the model class for table "comment".
  *
@@ -47,5 +49,27 @@ class Comment extends \yii\db\ActiveRecord
             'article_id' => 'Article ID',
             'status' => 'Status',
         ];
+    }
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getArticle()
+    {
+        return $this->hasOne(Article::className(), ['id' => 'article_id']);
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getUser()
+    {
+        return $this->hasOne(User::className(), ['id' => 'user_id']);
+    }
+    /**
+     * @return string
+     */
+    public function getDate() : string
+    {
+        return Yii::$app->formatter->asDate($this->date);
     }
 }

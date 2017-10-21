@@ -2,9 +2,10 @@
 
 /* @var $this yii\web\View */
 
+use yii\helpers\Html;
 use yii\helpers\Url;
 
-$this->title = 'My Yii Application';
+$this->title = 'Welcome to simblog!';
 ?>
 <!--main content start-->
 <div class="main-content">
@@ -14,8 +15,8 @@ $this->title = 'My Yii Application';
                 <?php foreach($articles as $article): ?>
                     <article class="post">
                         <div class="post-thumb">
-                            <a href="<?=Url::toRoute(['site/view', 'id' => $article->id])?>"><img src="<?=$article->getImage();?>" alt=""></a>
-
+                            <a href="<?=Url::toRoute(['site/view', 'id' => $article->id])?>">
+                                <?= Html::img(Yii::$app->urlManager->createUrl($article->getImage())) ?>
                             <a href="<?=Url::toRoute(['site/view', 'id' => $article->id])?>" class="post-thumb-overlay text-center">
                                 <div class="text-uppercase text-center">View Post</div>
                             </a>

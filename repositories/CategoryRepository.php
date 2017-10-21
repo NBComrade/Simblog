@@ -9,14 +9,6 @@ use app\models\Category;
 class CategoryRepository extends Category
 {
     /**
-     * @return \yii\db\ActiveQuery
-     */
-    public function getArticles()
-    {
-        return $this->hasMany(Article::className(), ['category_id'=> 'id']);
-    }
-
-    /**
      * @return int|string
      */
     public function getArticlesCount() : int
@@ -56,18 +48,18 @@ class CategoryRepository extends Category
      * @param $id
      * @return array|\yii\db\ActiveRecord[]
      */
-    public static function getArticlesByCategoryId(int $id)
+    public static function getArticlesByCategoryId($id)
     {
         return Article::find()->where(['category_id' => $id])->all();
     }
-
     /**
      * @param $id
      * @return int
      */
-    public static function getCategoryIdByArticleId(int $id) : int
+    public static function getCategoryIdByArticleId(int $id)
     {
         $article = Article::findOne(['id' => $id]);
         return $article->category_id;
     }
+
 }
