@@ -1,6 +1,6 @@
 <?php
 
-namespace app\models;
+namespace app\repositories;
 
 class TagRepository extends Tag
 {

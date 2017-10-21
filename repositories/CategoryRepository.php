@@ -1,8 +1,9 @@
 <?php
 
-namespace app\models;
+namespace app\repositories;
 
 use yii\data\Pagination;
+use app\models\Category;
 
 class CategoryRepository extends Category
 {

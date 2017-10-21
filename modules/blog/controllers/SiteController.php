@@ -2,8 +2,8 @@
 
 namespace app\modules\blog\controllers;
 
-use app\models\Article;
-use app\models\Category;
+use app\repositories\ArticleRepository;
+use app\repositories\CategoryRepository;
 use app\modules\blog\forms\CommentForm;
 use app\models\Testemonials;
 use Yii;
@@ -65,12 +65,12 @@ class SiteController extends Controller
     public function actionIndex()
     {
 
-        $data =  Article::getAll(3);
-        $popular = Article::getPopular();
-        $last = Article::getLast();
-        $categories = Category::getAll();
+        $data =  ArticleRepository::getAll(3);
+        $popular = ArticleRepository::getPopular();
+        $last = ArticleRepository::getLast();
+        $categories = CategoryRepository::getAll();
         $testemonials = Testemonials::find()->all();
-        $rabndPost = Article::getRandomPost();
+        $rabndPost = ArticleRepository::getRandomPost();
 
         return $this->render('index', [
             'articles' =>$data['articles'],
@@ -132,16 +132,16 @@ class SiteController extends Controller
     }
     public function actionView($id)
     {
-        $article = Article::findOne($id);
-        $popular = Article::getPopular();
-        $rabndPost = Article::getRandomPost();
-        $last = Article::getLast();
-        $categories = Category::getAll();
+        $article = ArticleRepository::findOne($id);
+        $popular = ArticleRepository::getPopular();
+        $rabndPost = ArticleRepository::getRandomPost();
+        $last = ArticleRepository::getLast();
+        $categories = CategoryRepository::getAll();
         $comments = $article->getArticleComments();
         $user = $article->getArticleAuthor();
         $tags = $article->getArticleTags();
         $testemonials = Testemonials::find()->all();
-        $categoryArticles = Category::getArticlesByCategoryId(Category::getCategoryIdByArticleId($article->id));
+        $categoryArticles = CategoryRepository::getArticlesByCategoryId(CategoryRepository::getCategoryIdByArticleId($article->id));
         $commentForm = new CommentForm();
         $article->viewedCounter();
         return $this->render('single',[
@@ -160,12 +160,12 @@ class SiteController extends Controller
     }
     public function actionCategory($id)
     {
-        $data = Category::getArticlesByCategory($id, 2);
-        $popular = Article::getPopular();
-        $last = Article::getLast();
-        $categories = Category::getAll();
+        $data = CategoryRepository::getArticlesByCategory($id, 2);
+        $popular = ArticleRepository::getPopular();
+        $last = ArticleRepository::getLast();
+        $categories = CategoryRepository::getAll();
         $testemonials = Testemonials::find()->all();
-        $rabndPost = Article::getRandomPost();
+        $rabndPost = ArticleRepository::getRandomPost();
         return $this->render('category',[
             'article' =>$data['articles'],
             'pagination' => $data['pagination'],

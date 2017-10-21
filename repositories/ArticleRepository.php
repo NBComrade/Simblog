@@ -1,10 +1,11 @@
 <?php
 
-namespace app\models;
+namespace app\repositories;
 
 use Yii;
 use yii\data\Pagination;
 use yii\helpers\ArrayHelper;
+use app\models\Article;
 
 class ArticleRepository extends Article
 {
