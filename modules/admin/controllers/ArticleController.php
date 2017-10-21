@@ -63,8 +63,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Creates a new Article model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
+     * Creates a new Article.
      * @return mixed
      */
     public function actionCreate()
@@ -81,8 +80,7 @@ class ArticleController extends Controller
     }
 
     /**
-     * Updates an existing Article model.
-     * If update is successful, the browser will be redirected to the 'view' page.
+     * Updates an existing Article.
      * @param integer $id
      * @return mixed
      */

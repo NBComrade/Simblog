@@ -2,6 +2,9 @@
 
 namespace app\repositories;
 
+use app\models\Article;
+use app\models\Comment;
+use app\models\User;
 use Yii;
 
 class CommentRepository extends Comment
@@ -27,20 +30,36 @@ class CommentRepository extends Comment
     {
         return $this->hasOne(User::className(), ['id' => 'user_id']);
     }
-    public function getDate()
+
+    /**
+     * @return string
+     */
+    public function getDate() : string
     {
         return Yii::$app->formatter->asDate($this->date);
     }
-    public function isAllowed()
+
+    /**
+     * @return int
+     */
+    public function isAllowed() : int
     {
         return $this->status;
     }
-    public function allow()
+
+    /**
+     * @return bool
+     */
+    public function allow() : bool
     {
         $this->status = self::STATUS_ALLOW;
         return $this->save(false);
     }
-    public function disallow()
+
+    /**
+     * @return bool
+     */
+    public function disallow() : bool
     {
         $this->status = self::STATUS_DISALLOW;;
         return $this->save(false);
