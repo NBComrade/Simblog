@@ -2,6 +2,7 @@
 namespace app\modules\blog\widgets;
 
 use app\repositories\ArticleRepository;
+use Yii;
 use yii\base\Widget;
 
 class PopularPostWidget extends Widget
@@ -11,8 +12,11 @@ class PopularPostWidget extends Widget
     public function init()
     {
         parent::init();
-        if (!$this->popularPosts) {
+        if (!Yii::$app->cache->exists('popular')) {
             $this->popularPosts = ArticleRepository::getPopular();
+            Yii::$app->cache->set('popular', $this->popularPosts, 180);
+        } else {
+            $this->popularPosts = Yii::$app->cache->get('popular');
         }
 
     }

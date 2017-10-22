@@ -3,6 +3,7 @@
 namespace app\modules\blog\widgets;
 
 use app\repositories\CategoryRepository;
+use Yii;
 use yii\base\Widget;
 
 class CategoriesWidget extends Widget
@@ -12,8 +13,11 @@ class CategoriesWidget extends Widget
     public function init()
     {
         parent::init();
-        if (!$this->categories) {
+        if (!Yii::$app->cache->exists('categories')) {
             $this->categories = CategoryRepository::getAll();
+            Yii::$app->cache->set('categories', $this->categories, 180);
+        } else {
+            $this->categories = Yii::$app->cache->get('categories');
         }
     }
     public function run()
