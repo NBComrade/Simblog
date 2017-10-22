@@ -66,8 +66,6 @@ class SiteController extends Controller
     {
 
         $data =  ArticleRepository::getAll(3);
-        $popular = ArticleRepository::getPopular();
-        $last = ArticleRepository::getLast();
         $categories = CategoryRepository::getAll();
         $testemonials = Testemonials::find()->all();
         $rabndPost = ArticleRepository::getRandomPost();
@@ -75,8 +73,6 @@ class SiteController extends Controller
         return $this->render('index', [
             'articles' =>$data['articles'],
             'pagination' => $data['pagination'],
-            'popular' => $popular,
-            'last' => $last,
             'categories' => $categories,
             'testemonials' => $testemonials,
             'randPost' => $rabndPost

@@ -12,9 +12,8 @@ class PopularPostWidget extends Widget
     public function init()
     {
         parent::init();
-        $this->popularPosts = ArticleRepository::getPopular();
         if (!$this->popularPosts) {
-
+            $this->popularPosts = ArticleRepository::getPopular();
         }
 
     }
