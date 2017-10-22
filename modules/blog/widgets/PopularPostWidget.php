@@ -3,7 +3,6 @@ namespace app\modules\blog\widgets;
 
 use app\repositories\ArticleRepository;
 use yii\base\Widget;
-use yii\helpers\Html;
 
 class PopularPostWidget extends Widget
 {
