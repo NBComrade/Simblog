@@ -59,7 +59,7 @@ $this->title = $article->title;
                         <?php foreach($categoryArticles as $article): ?>
                         <div class="single-item">
                             <a href="<?=Url::toRoute(['site/view', 'id' => $article->id])?>">
-                                <img width="230px" src="<?=$article->getImage();?>" alt="">
+                                <?= Html::img(Yii::$app->urlManager->createUrl($article->getImage())); ?>
                                 <p style="text-transform: uppercase;"><?=$article->title; ?></p>
                             </a>
                         </div>
@@ -79,12 +79,9 @@ $this->title = $article->title;
                             <div class="comment-text">
                                 <a href="#" class="replay btn pull-right"> Replay</a>
                                 <h5><?= $comment->user->name;?></h5>
-
                                 <p class="comment-date">
                                     <?= $comment->getDate();?>
                                 </p>
-
-
                                 <p class="para"><?= $comment->text;?></p>
                             </div>
                         </div>

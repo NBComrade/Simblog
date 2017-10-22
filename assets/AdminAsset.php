@@ -23,6 +23,6 @@ class AdminAsset extends AssetBundle
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapPluginAsset',
         'app\assets\CKEditorAsset',
-        'app\assets\CKFinderAss'
+        'app\assets\CKFinderAsset'
     ];
 }

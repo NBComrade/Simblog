@@ -8,16 +8,15 @@ var gulp = require('gulp'),
 
 // Paths to resources
 var JS_PATH = [
-        'vendor/bower/owl.carousel/dist/owl.carousel.min.js',
+        'vendor/bower/owl.carousel/dist/owl.carousel.js',
         'vendor/bower/jquery-stickit/build/jquery.stickit.min.js',
         'web/js/custom/scripts.js',
         'web/js/custom/menu.js'
     ],
     CSS_PATH = [
-        'vendor/bower/animate.css/animate.min.css',
-        'vendor/bower/font-awesome/css/font-awesome.min.css',
-        'vendor/bower/owl.carousel/dist/assets/owl.carousel.min.css',
-        'vendor/bower/owl.carousel/dist/assets/owl.carousel.theme.default.min.css',
+        'vendor/bower/animate.css/animate.css',
+        'vendor/bower/owl.carousel/dist/assets/owl.carousel.css',
+        'vendor/bower/owl.carousel/dist/assets/owl.carousel.theme.default.css',
         'web/css/custom/*.css'
     ];
 
@@ -41,7 +40,7 @@ gulp.task('simblog:min:css', function () {
         .pipe(gulp.dest('web/'));
 });
 
-//watching changing css and js
+//watching changes in css and js
 gulp.task('watch', ['simblog:min:css', 'simblog:min:js'], function() {
     gulp.watch('web/public/**/*.css', ['simblog:min:css']);
     gulp.watch('web/public/**/*.js', ['simblog:min:js']);
