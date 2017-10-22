@@ -10,7 +10,6 @@ $config = [
     'components' => [
         'request' => [
             'cookieValidationKey' => 'Y3Z9wKMQOOWCqXgRfTbh2oVhIY52xtoz',
-            'baseUrl'=> '',
         ],
         'cache' => [
             'class' => 'yii\caching\FileCache',

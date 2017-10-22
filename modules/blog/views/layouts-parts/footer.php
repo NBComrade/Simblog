@@ -44,7 +44,7 @@ use yii\helpers\Html;
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/public/images/author.png')) ?>
 
                                         <div class="author-text">
                                             <h4>Sophia</h4>
@@ -63,7 +63,7 @@ use yii\helpers\Html;
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/public/images/author.png')) ?>
                                         <div class="author-text">
                                             <h4>Sophia</h4>
 
@@ -81,7 +81,7 @@ use yii\helpers\Html;
                                             magna aliquyam eratma</p>
                                     </div>
                                     <div class="author-id">
-                                        <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/author.png')) ?>
+                                        <?= Html::img(Yii::$app->urlManager->createUrl('/public/images/author.png')) ?>
                                         <div class="author-text">
                                             <h4>Sophia</h4>
 
@@ -104,7 +104,7 @@ use yii\helpers\Html;
                     <div class="custom-post">
                         <div>
                             <a href="#">
-                                <?= Html::img(Yii::$app->urlManager->createUrl('/web/public/images/footer-img.png')) ?>
+                                <?= Html::img(Yii::$app->urlManager->createUrl('/public/images/footer-img.png')) ?>
                             </a>
                         </div>
                         <div>

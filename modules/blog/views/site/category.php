@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Url;
+use yii\helpers\Html;
 ?>
 <!--main content start-->
 <div class="main-content">
@@ -11,7 +12,9 @@ use yii\helpers\Url;
                     <div class="row">
                         <div class="col-md-6">
                             <div class="post-thumb">
-                                <a href="<?=Url::toRoute(['site/view', 'id' => $post->id])?>"><img src="<?=$post->getImage();?>" alt="" class="pull-left"></a>
+                                <a href="<?=Url::toRoute(['site/view', 'id' => $post->id])?>">
+                                    <?= Html::img(Yii::$app->urlManager->createUrl($post->getImage())) ?>
+                                </a>
 
                                 <a href="<?=Url::toRoute(['site/view', 'id' => $post->id])?>" class="post-thumb-overlay text-center">
                                     <div class="text-uppercase text-center">View Post</div>

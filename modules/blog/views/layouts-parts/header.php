@@ -15,7 +15,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="<?= Url::toRoute(['site/index'])?>">
-                    <?= Html::img('/web/public/images/logo.jpg') ?>
+                    <?= Html::img('/public/images/logo.jpg') ?>
                 </a>
             </div>
 

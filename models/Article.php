@@ -70,9 +70,9 @@ class Article extends \yii\db\ActiveRecord
     public function getImage() : string
     {
         if ($this->image) {
-            return 'web/uploads/' . $this->image;
+            return 'uploads/' . $this->image;
         } else {
-            return 'web/no-image.jpg';
+            return 'no-image.jpg';
         }
     }
     /**

@@ -1,4 +1,5 @@
 <?php
+use yii\helpers\Html;
 use yii\helpers\Url;
 $this->title = $article->title;
 ?>
@@ -9,7 +10,7 @@ $this->title = $article->title;
             <div class="col-md-8">
                 <article class="post">
                     <div class="post-thumb">
-                       <img src=" <?=$article->getImage();?>" alt="">
+                        <?= Html::img(Yii::$app->urlManager->createUrl($article->getImage())) ?>
                     </div>
                     <div class="post-content">
                         <header class="entry-header text-center text-uppercase">
