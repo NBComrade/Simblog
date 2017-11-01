@@ -6,12 +6,14 @@ use app\repositories\ArticleRepository;
 use app\repositories\CategoryRepository;
 use app\modules\blog\forms\CommentForm;
 use app\models\Testemonials;
-use Yii;
+use app\repositories\CommentRepository;
 use yii\filters\AccessControl;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use app\modules\blog\forms\LoginForm;
 use app\modules\blog\forms\ContactForm;
+use Exception;
+use Yii;
 
 class SiteController extends Controller
 {
@@ -170,17 +172,26 @@ class SiteController extends Controller
             'randPost' => $rabndPost
         ]);
     }
+
+    /**
+     * Action for add new comment
+     * @param $id
+     * @return \yii\web\Response
+     */
     public function actionComment($id)
     {
         $model = new CommentForm();
-
-        if(Yii::$app->request->isPost){
-            $model->load(Yii::$app->request->post());
-            if($model->saveComment($id)){
-                return $this->redirect(['site/view', 'id'=> $id]);
+        try {
+            if (Yii::$app->request->isPost) {
+                $model->load(Yii::$app->request->post());
+                if (CommentRepository::saveNewComment($model, $id)) {
+                    return $this->redirect(['site/view', 'id' => $id]);
+                }
             }
+            Yii::$app->getSession()->setFlash("success.comment", 'Your comment will be added soon!');
+        } catch (Exception $e) {
+            Yii::$app->getSession()->setFlash("wrong.comment", $e->getMessage());
         }
-        Yii::$app->getSession()->setFlash("comment", 'Your comment will be added soon!');
-        return $this->redirect(['site/view', 'id'=> $id]);
+        return $this->redirect(['site/view', 'id' => $id]);
     }
 }

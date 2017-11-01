@@ -30,13 +30,9 @@ class User extends ActiveRecord implements IdentityInterface
         return $this->password === $password;
     }
     public static function findByUsername($username) {
-        $user = self::find()
-            ->where([
-                "name" => $username
-            ])
-            ->one();
-        if (!count($user)) {
-            return null;
+        $user = self::find()->where(["name" => $username])->limit(1)->one();
+        if (!isset($user)) {
+            return false;
         }
         return new static($user);
     }
@@ -107,9 +103,17 @@ class User extends ActiveRecord implements IdentityInterface
     {
         // TODO: Implement validateAuthKey() method.
     }
-    public function create()
+
+    /**
+     * Save new User
+     * @param $attributes
+     * @return bool
+     */
+    public static function create($attributes)
     {
-        return $this->save(false);
+        $user = new static;
+        $user->attributes = $attributes;
+        return $user->save(false);
     }
     public function saveFromVk($uid,$first_name, $photo){
         $user = User::findOne($uid);

@@ -20,12 +20,4 @@ class SingupForm extends Model
             [['email'], 'unique', 'targetClass'=>'app\models\User', 'targetAttribute'=>'email']
         ];
     }
-    public function singUp()
-    {
-        if($this->validate()){
-            $user = new User();
-            $user->attributes = $this->attributes;
-            return $user->create();
-        }
-    }
 }

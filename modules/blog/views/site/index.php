@@ -53,11 +53,7 @@ $this->title = 'Welcome to simblog!';
                 ?>
             </div>
             <div class="col-md-4" data-sticky_column>
-                <?=$this->render('/layouts-parts/sidebar', [
-                    'popular' => $popular,
-                    'last' => $last,
-                    'categories' => $categories
-                ])?>
+                <?=$this->render('/layouts-parts/sidebar')?>
             </div>
         </div>
     </div>

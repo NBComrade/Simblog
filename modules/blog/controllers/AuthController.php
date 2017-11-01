@@ -4,6 +4,7 @@ namespace app\modules\blog\controllers;
 use app\modules\blog\forms\LoginForm;
 use app\modules\blog\forms\SingupForm;
 use app\models\User;
+use \InvalidArgumentException;
 use Yii;
 use yii\web\Controller;
 
@@ -17,16 +18,24 @@ class AuthController extends Controller
     public function actionLogout()
     {
         Yii::$app->user->logout();
-
         return $this->goHome();
     }
+
+    /**
+     * Registration action
+     *
+     * @return string|\yii\web\Response
+     * @throws InvalidArgumentException
+     */
     public function actionSingup()
     {
         $model = new SingupForm();
-        if(Yii::$app->request->isPost){
+        if (Yii::$app->request->isPost) {
             $model->load(Yii::$app->request->post());
-            if($model->singUp()){
+            if ($model->validate() && User::create($model->attributes)) {
                 return $this->redirect(['auth/login']);
+            } else {
+                throw new InvalidArgumentException("Invalid information for singup!");
             }
         }
         return $this->render('/site/singup', [
