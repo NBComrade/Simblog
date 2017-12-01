@@ -5,7 +5,6 @@ namespace app\modules\blog\controllers;
 use app\repositories\ArticleRepository;
 use app\repositories\CategoryRepository;
 use app\modules\blog\forms\CommentForm;
-use app\models\Testemonials;
 use app\repositories\CommentRepository;
 use yii\filters\AccessControl;
 use yii\web\Controller;
@@ -68,14 +67,10 @@ class SiteController extends Controller
     {
 
         $data =  ArticleRepository::getAll(3);
-        $testemonials = Testemonials::find()->all();
-        $rabndPost = ArticleRepository::getRandomPost();
 
         return $this->render('index', [
             'articles' =>$data['articles'],
             'pagination' => $data['pagination'],
-            'testemonials' => $testemonials,
-            'randPost' => $rabndPost
         ]);
     }
 
@@ -126,50 +121,36 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
+
+    /**
+     * @param $id
+     * @return string
+     */
     public function actionView($id)
     {
         $article = ArticleRepository::findOne($id);
-        $popular = ArticleRepository::getPopular();
-        $rabndPost = ArticleRepository::getRandomPost();
-        $last = ArticleRepository::getLast();
-        $categories = CategoryRepository::getAll();
         $comments = $article->getArticleComments();
         $user = $article->getArticleAuthor();
         $tags = $article->getArticleTags();
-        $testemonials = Testemonials::find()->all();
         $categoryArticles = CategoryRepository::getArticlesByCategoryId(CategoryRepository::getCategoryIdByArticleId($article->id));
         $commentForm = new CommentForm();
         $article->viewedCounter();
         return $this->render('single',[
-            'article' => $article,
-            'popular' => $popular,
-            'last' => $last,
-            'categories' => $categories,
             'comments' => $comments,
             'commentForm' => $commentForm,
             'user' => $user,
             'tags' => $tags,
             'categoryArticles' => $categoryArticles,
-            'testemonials' => $testemonials,
-            'randPost' => $rabndPost
+
         ]);
     }
     public function actionCategory($id)
     {
         $data = CategoryRepository::getArticlesByCategory($id, 2);
-        $popular = ArticleRepository::getPopular();
-        $last = ArticleRepository::getLast();
-        $categories = CategoryRepository::getAll();
-        $testemonials = Testemonials::find()->all();
-        $rabndPost = ArticleRepository::getRandomPost();
+
         return $this->render('category',[
             'article' =>$data['articles'],
             'pagination' => $data['pagination'],
-            'popular' => $popular,
-            'last' => $last,
-            'categories' => $categories,
-            'testemonials' => $testemonials,
-            'randPost' => $rabndPost
         ]);
     }
 
